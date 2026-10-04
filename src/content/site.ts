@@ -39,6 +39,16 @@ export const site = {
   summary:
     "I've spent 4+ years building products with React and TypeScript, and taking them end to end with Node.js and NestJS.",
   email: "lashagoglidzelasha@gmail.com",
+  phone: "+995 533 330 802",
+  contactForm: {
+    endpoint: "https://api.web3forms.com/submit",
+    accessKey: "3d48153e-51f1-4b45-9650-8b591e9234a6",
+    subject: "New message from your portfolio",
+  },
+  whatsapp: {
+    number: "995533330802",
+    message: "Hi Lasha, I saw your portfolio and would like to get in touch.",
+  },
   cv: {
     href: "/cv.pdf",
     fileName: "Lasha-Goglidze-CV.pdf",
