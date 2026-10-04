@@ -1878,7 +1878,22 @@ a.project:hover {
   }
 
   .hero-page .portrait {
-    width: min(100%, 18rem, calc((100svh - 36.5rem) * 724 / 1024));
+    aspect-ratio: 1;
+    width: min(100%, 18rem, calc(100svh - 36.5rem));
+  }
+
+  .hero-page .portrait img {
+    object-position: 50% 30%;
+    -webkit-mask-image: radial-gradient(
+      ellipse closest-side at 50% 48%,
+      #000 68%,
+      transparent 100%
+    );
+    mask-image: radial-gradient(
+      ellipse closest-side at 50% 48%,
+      #000 68%,
+      transparent 100%
+    );
   }
 }
 
