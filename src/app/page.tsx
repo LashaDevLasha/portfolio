@@ -2,7 +2,6 @@ import Image from "next/image";
 import Link from "next/link";
 import portrait from "@/assets/me.jpg";
 import { MotionEffects } from "@/components/MotionEffects";
-import { ScrambleHeading } from "@/components/ScrambleHeading";
 import { site } from "@/content/site";
 
 export default function Home() {
@@ -12,13 +11,7 @@ export default function Home() {
       <section className="hero hero-page" aria-labelledby="intro-heading">
         <div className="wrap hero-grid">
           <div className="hero-copy">
-            <ScrambleHeading
-              as="h1"
-              id="intro-heading"
-              text={site.statement}
-              delay={250}
-              duration={1400}
-            />
+            <h1 id="intro-heading">{site.statement}</h1>
             <p className="summary">{site.summary}</p>
             <div className="actions">
               <Link className="button" href="/contact">

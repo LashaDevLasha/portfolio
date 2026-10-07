@@ -1,6 +1,4 @@
 import type { CSSProperties } from "react";
-import { ScrambleHeading } from "@/components/ScrambleHeading";
-
 export function stagger(index: number) {
   return { "--i": index } as CSSProperties;
 }
@@ -17,7 +15,7 @@ export function PageHeading({
   return (
     <header className="section-heading page-heading" data-reveal>
       {kicker ? <p className="kicker">{kicker}</p> : null}
-      <ScrambleHeading as="h1" id="page-title" text={title} delay={150} />
+      <h1 id="page-title">{title}</h1>
       {intro ? <p className="section-intro">{intro}</p> : null}
     </header>
   );

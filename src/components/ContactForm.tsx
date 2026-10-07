@@ -91,7 +91,7 @@ export function ContactForm() {
       </div>
       <label className="field">
         <span>Message</span>
-        <textarea name="message" rows={4} required maxLength={5000} />
+        <textarea name="message" rows={3} required maxLength={5000} />
       </label>
       <input
         type="checkbox"

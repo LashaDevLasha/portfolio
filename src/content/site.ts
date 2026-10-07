@@ -33,7 +33,7 @@ const links: SiteLink[] = [
 ];
 
 export const site = {
-  name: "Lasha",
+  name: "Lasha Goglidze",
   role: "Software Engineer",
   statement: "From idea to interface — and everything in between",
   summary:

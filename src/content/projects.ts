@@ -13,8 +13,6 @@ export type Project = {
   title: string;
   tagline: string;
   role: string;
-  period: string;
-  duration: string;
   client: {
     name: string;
     location?: string;
@@ -35,53 +33,10 @@ export type Project = {
 
 export const projects: Project[] = [
   {
-    slug: "ketcher",
-    title: "Ketcher",
-    tagline: "Open-source chemical structure editor",
-    role: "Software Engineer",
-    period: "Jul 2026 – Sep 2026",
-    duration: "3 months",
-    client: {
-      name: "EPAM Systems",
-      description:
-        "EPAM Systems, Inc. is a global software engineering and IT consulting company. Its Life Sciences practice develops and maintains open-source tools for chemists and laboratory scientists, including Ketcher.",
-    },
-    image: ketcher,
-    imageAlt:
-      "Ketcher open-source chemical structure editor showing a drawn molecule with its formula, molecular weight, and SMILES string, in a laboratory setting with glassware and a molecular model",
-    summary:
-      "Contributing to Ketcher, EPAM's open-source, web-based chemical structure editor used by chemists and lab scientists to draw and analyze molecules and reactions.",
-    overview: [
-      "Ketcher is an open-source, web-based chemical structure editor that offers high performance, good portability, a light footprint, and easy integration into custom web applications. It is designed for chemists, laboratory scientists, and technicians who draw structures and reactions.",
-      "As part of EPAM's internal Life Sciences projects on the EPM-LSTR team, I contributed to Ketcher's codebase as an open-source contributor, working with React, TypeScript, and WebAssembly on a real-world scientific application.",
-      "The work combined modern front-end engineering with the Life Sciences domain — keeping a complex, interactive 2D drawing tool fast, reliable, and well tested.",
-    ],
-    highlights: [
-      "Open-source contributions to a real scientific product",
-      "React and TypeScript with a WebAssembly core",
-      "Unit tests with Jest and end-to-end tests with Playwright",
-      "Interactive 2D chemical structure editing",
-    ],
-    responsibilities: [
-      "Contributed features and fixes to Ketcher, an open-source chemical structure editor, using React and TypeScript.",
-      "Worked with Ketcher's WebAssembly-powered core to support high-performance structure rendering and processing.",
-      "Wrote and maintained unit tests with Jest and end-to-end tests with Playwright to keep the editor reliable.",
-      "Followed the project's open-source workflow — issues, pull requests, and code reviews — with the maintainers.",
-    ],
-    outcome:
-      "Gained hands-on experience contributing to a widely used open-source scientific tool, working in the Life Sciences domain with a modern React, TypeScript, and WebAssembly stack.",
-    stack: ["React", "TypeScript", "WebAssembly", "Jest", "Playwright"],
-    team: [{ value: "EPM-LSTR" }],
-    href: "https://github.com/epam/ketcher",
-    linkLabel: "GitHub",
-  },
-  {
     slug: "cb2",
     title: "CB2 React Migration",
     tagline: "Multi-country e-commerce on React and SAP Commerce Cloud",
     role: "Software Engineer",
-    period: "Mar 2026 – Jun 2026",
-    duration: "4 months",
     client: {
       name: "Majid Al Futtaim Emakina",
       description:
@@ -104,7 +59,7 @@ export const projects: Project[] = [
       "Performance tuning and security fixes from test results",
     ],
     responsibilities: [
-      "Developed and delivered 7 e-commerce websites and managed 6 country-specific rollouts for MAF Ventures LLC over a 3-year period.",
+      "Developed and delivered 7 e-commerce websites and managed 6 country-specific rollouts for MAF Ventures LLC.",
       "Iterated and enhanced existing e-commerce platforms by adding new features and optimizing functionality.",
       "Designed and implemented new e-commerce websites tailored to business requirements and client needs.",
       "Utilized SAP Commerce Cloud expertise, including B2C Accelerator, PCM (Category & Product Management), and WCMS/SmartEdit, to develop and maintain high-quality solutions.",
@@ -120,6 +75,12 @@ export const projects: Project[] = [
       "Delivered reliable, scalable e-commerce experiences across multiple markets — with smoother order operations, richer integrations, and a platform tuned for performance and security.",
     stack: [
       "React",
+      "TypeScript",
+      "Redux",
+      "TanStack Query",
+      "Tailwind CSS",
+      "CMS",
+      "Payments",
       "SAP Commerce Cloud",
       "B2C Accelerator",
       "PCM",
@@ -133,12 +94,119 @@ export const projects: Project[] = [
     team: [{ value: "MAFE-CB26" }],
   },
   {
+    slug: "order-management",
+    title: "Logistics Order Management",
+    tagline: "Automated order processing for a US trucking company",
+    role: "Full Stack Developer",
+    client: {
+      name: "US trucking company",
+      location: "USA",
+      description:
+        "A delivery trucking company based in the USA, providing logistics and transportation services. It manages daily shipments and deliveries, and needed a system to automate order processing, improve efficiency, and track orders in real time.",
+    },
+    image: orderManagement,
+    imageAlt:
+      "Logistics order management system: a truck at a warehouse with an order pipeline from a received email through processing, in transit, out for delivery, and delivered, plus a route map",
+    summary:
+      "A full-stack system that receives orders by email, parses and stores them automatically, and tracks every delivery in real time — replacing a fully manual process.",
+    overview: [
+      "The Order Management System is a full-stack application designed to automate and streamline the order management process for a trucking company. It receives orders via email, processes them efficiently, and tracks their status in real time.",
+      "I developed the project independently, initially building the backend with Express and later migrating to NestJS to improve the system's structure, scalability, and maintainability. The backend parses incoming order emails, stores order details in a PostgreSQL database, and pushes real-time updates to the frontend over WebSockets.",
+      "On the frontend, I built a user-friendly dashboard with React and TypeScript that lets staff view, process, and manage orders with ease, with real-time order tracking and status updates that significantly improved operational efficiency and reduced manual work.",
+    ],
+    highlights: [
+      "Solo build, end to end — backend, frontend, and database",
+      "Automatic order intake by parsing emails via the Gmail API",
+      "Live order status over WebSockets, routes on Google Maps",
+      "Migrated from Express to NestJS for structure and scale",
+    ],
+    responsibilities: [
+      "Designed and implemented both backend and frontend components to ensure seamless system functionality and an enhanced user experience.",
+      "Developed and maintained server-side logic to optimize application performance and scalability.",
+      "Managed database operations, including schema design, data storage, and optimization to ensure efficient data retrieval.",
+      "Enabled real-time data transmission to support dynamic and responsive application behavior.",
+      "Created an intuitive and user-friendly interface for order management, improving usability and workflow efficiency.",
+    ],
+    outcome:
+      "The project delivered a robust, scalable solution that automated a previously manual process, enabling the company to handle orders more effectively while minimizing errors.",
+    stack: [
+      "NestJS",
+      "Express",
+      "React",
+      "TypeScript",
+      "Redux",
+      "TanStack Query",
+      "PostgreSQL",
+      "Ant Design",
+      "WebSockets",
+      "Axios",
+      "Google Maps API",
+      "Gmail API",
+      "JWT Authentication",
+      "Git",
+    ],
+    team: [{ value: "Independent development (solo project)" }],
+  },
+  {
+    slug: "ketcher",
+    title: "Ketcher",
+    tagline: "Open-source chemical structure editor",
+    role: "Software Engineer",
+    client: {
+      name: "EPAM Systems",
+      description:
+        "EPAM Systems, Inc. is a global software engineering and IT consulting company. Its Life Sciences practice develops and maintains open-source tools for chemists and laboratory scientists, including Ketcher.",
+    },
+    image: ketcher,
+    imageAlt:
+      "Ketcher open-source chemical structure editor showing a drawn molecule with its formula, molecular weight, and SMILES string, in a laboratory setting with glassware and a molecular model",
+    summary:
+      "Contributing to Ketcher, EPAM's open-source, web-based chemical structure editor used by chemists and lab scientists to draw and analyze molecules and reactions — built with an AI-first workflow.",
+    overview: [
+      "Ketcher is an open-source, web-based chemical structure editor that offers high performance, good portability, a light footprint, and easy integration into custom web applications. It is designed for chemists, laboratory scientists, and technicians who draw structures and reactions.",
+      "As part of EPAM's internal Life Sciences projects on the EPM-LSTR team, I contributed to Ketcher's codebase as an open-source contributor, working with React, TypeScript, Redux, TanStack Query, and WebAssembly on a real-world scientific application.",
+      "The work on this project was meant to be done with AI, so my role was closer to an AI engineer than a traditional developer: I drove the work through LLM tools, integrated LLM APIs, and evaluated and tested AI output to make sure every change met the project's quality bar.",
+      "The work combined modern front-end engineering with the Life Sciences domain — keeping a complex, interactive 2D drawing tool fast, reliable, and well tested.",
+    ],
+    highlights: [
+      "AI-first development — working more as an AI engineer",
+      "LLM API integration and AI evaluation and testing",
+      "Open-source contributions to a real scientific product",
+      "React, TypeScript, Redux, and TanStack Query with a WebAssembly core",
+      "Unit tests with Jest and end-to-end tests with Playwright",
+    ],
+    responsibilities: [
+      "Built features and fixes with an AI-first workflow, using LLM tools to generate, refactor, and review code while owning the final quality of every change.",
+      "Integrated LLM APIs into the development workflow to speed up implementation, debugging, and documentation.",
+      "Evaluated and tested AI-generated code and output — checking correctness, edge cases, and consistency with the codebase before it shipped.",
+      "Contributed features and fixes to Ketcher, an open-source chemical structure editor, using React, TypeScript, Redux, and TanStack Query.",
+      "Worked with Ketcher's WebAssembly-powered core to support high-performance structure rendering and processing.",
+      "Wrote and maintained unit tests with Jest and end-to-end tests with Playwright to keep the editor reliable.",
+      "Followed the project's open-source workflow — issues, pull requests, and code reviews — with the maintainers.",
+    ],
+    outcome:
+      "Gained hands-on experience contributing to a widely used open-source scientific tool, working in the Life Sciences domain with a modern React, TypeScript, and WebAssembly stack.",
+    stack: [
+      "React",
+      "TypeScript",
+      "Redux",
+      "TanStack Query",
+      "AI",
+      "LLM API integration",
+      "AI evaluation and testing",
+      "WebAssembly",
+      "Jest",
+      "Playwright",
+    ],
+    team: [{ value: "EPM-LSTR" }],
+    href: "https://github.com/epam/ketcher",
+    linkLabel: "GitHub",
+  },
+  {
     slug: "toyota-lexus",
     title: "Toyota & Lexus Web Platform",
     tagline: "Sitecore XM upgrade and mobile app development",
     role: "Software Engineer",
-    period: "Nov 2025 – Feb 2026",
-    duration: "4 months",
     client: {
       name: "ALJ Emakina",
       description:
@@ -152,7 +220,7 @@ export const projects: Project[] = [
     overview: [
       "I joined the ALJE-STR team at ALJ Emakina to work on the Toyota and Lexus web platforms during a Sitecore XM upgrade, delivered alongside development of a mobile application.",
       "I developed and maintained responsive web applications with Next.js and TypeScript, implemented new features in line with project requirements and business goals, and built user-friendly interfaces with Material-UI (MUI) in close collaboration with UX/UI designers.",
-      "I also integrated the front end with REST APIs and backend services, optimized loading performance and cross-browser compatibility, and helped plan and estimate front-end work within agile development cycles.",
+      "I also integrated the front end with REST APIs and backend services, optimized loading performance and cross-browser compatibility, and helped plan and estimate front-end work.",
     ],
     highlights: [
       "Brand websites for Toyota and Lexus on Next.js and TypeScript",
@@ -168,17 +236,17 @@ export const projects: Project[] = [
       "Integrate front-end systems with REST APIs and backend services for seamless functionality.",
       "Optimize application performance, ensuring efficient loading times and cross-browser compatibility.",
       "Participate in code reviews to ensure clean, maintainable, and scalable code.",
-      "Assist in planning and estimating front-end tasks and features within agile development cycles.",
+      "Assist in planning and estimating front-end tasks and features.",
     ],
     outcome:
       "Helped move the Toyota and Lexus brand platforms onto an upgraded Sitecore XM foundation while keeping the sites fast, stable, and consistent across browsers.",
     stack: [
       "Next.js",
       "TypeScript",
+      "Redux",
       "Material-UI (MUI)",
       "Sitecore XM",
       "REST APIs",
-      "Agile",
     ],
     team: [{ value: "ALJE-STR" }],
   },
@@ -187,8 +255,6 @@ export const projects: Project[] = [
     title: "Citadeli",
     tagline: "Company platform for a construction leader",
     role: "Front-End Developer",
-    period: "Jun 2024 – Oct 2025",
-    duration: "1 year 5 months",
     client: {
       name: "Citadeli",
       location: "Georgia",
@@ -219,7 +285,7 @@ export const projects: Project[] = [
       "Ensured cross-device compatibility, optimizing the website for mobile, tablet, and desktop users.",
       "Enhanced page load performance and frontend efficiency to improve overall user experience.",
       "Participated in code reviews, adhering to best practices for clean and maintainable code.",
-      "Worked in an Agile environment, contributing to sprint planning, standups, and team task coordination.",
+      "Contributed to sprint planning, standups, and team task coordination.",
       "Implemented accessibility features to ensure usability for a diverse audience.",
       "Tested UI components and workflows to guarantee functionality and a bug-free user experience.",
     ],
@@ -232,9 +298,10 @@ export const projects: Project[] = [
       "Ant Design",
       "WebSockets",
       "Online Chat Integration",
+      "Express",
+      "MySQL",
+      "Redis",
       "Git",
-      "GitHub",
-      "Agile",
     ],
     team: [
       { label: "Front-end", value: "3 developers (including me)" },
@@ -246,8 +313,6 @@ export const projects: Project[] = [
     title: "ADLI",
     tagline: "Construction projects platform for a Citadeli subsidiary",
     role: "Front-End Developer",
-    period: "Jul 2024 – Oct 2025",
-    duration: "1 year 4 months",
     client: {
       name: "ADLI",
       location: "Georgia",
@@ -288,9 +353,7 @@ export const projects: Project[] = [
       "Redux",
       "Ant Design",
       "WebSockets",
-      "Online Chat Integration",
       "Git",
-      "GitHub",
     ],
     team: [
       { label: "Front-end", value: "3 developers (including me)" },
@@ -302,8 +365,6 @@ export const projects: Project[] = [
     title: "Asterisk Manager",
     tagline: "Internal support management platform",
     role: "Front-End Developer",
-    period: "Feb 2023 – Jun 2024",
-    duration: "1 year 5 months",
     client: {
       name: "Softgen",
       location: "Tbilisi, Georgia",
@@ -333,7 +394,7 @@ export const projects: Project[] = [
       "Integrated REST APIs to display and manage real-time data for support operations.",
       "Ensured cross-browser compatibility, responsiveness, and accessibility across various screen sizes and devices.",
       "Implemented effective state management and optimized rendering to enhance performance and minimize unnecessary re-renders.",
-      "Participated in code reviews, sprint planning, and Agile ceremonies to improve product quality and development efficiency.",
+      "Participated in code reviews and sprint planning to improve product quality and development efficiency.",
       "Collaborated with UX/UI designers to translate design mockups into functional and interactive components.",
       "Wrote clean, maintainable, and well-documented code adhering to industry best practices and company standards.",
       "Contributed to bug fixing, UI enhancements, and performance optimization throughout the project lifecycle.",
@@ -358,8 +419,6 @@ export const projects: Project[] = [
     title: "QuickTest PTI System",
     tagline: "Online car inspection booking platform",
     role: "Full Stack Developer",
-    period: "Feb 2023 – Jun 2024",
-    duration: "1 year 5 months",
     client: {
       name: "QuickTest",
       location: "Georgia",
@@ -392,7 +451,7 @@ export const projects: Project[] = [
       "Participated in system planning and design, contributing ideas for structure, user flow, and technical improvements.",
       "Conducted testing and debugging of backend logic and API endpoints to ensure smooth and error-free operation.",
       "Adhered to clean code practices and Git workflows to maintain code quality and facilitate team collaboration.",
-      "Engaged in Agile meetings to discuss progress, review code, and coordinate with team members for timely feature delivery.",
+      "Joined team meetings to discuss progress, review code, and coordinate with team members for timely feature delivery.",
     ],
     outcome:
       "The project digitalized the company's workflow, minimized manual coordination, and gave customers a modern, convenient way to manage car inspections.",
@@ -406,11 +465,7 @@ export const projects: Project[] = [
       "JWT Authentication",
       "SMS Integration",
       "Online Payments",
-      "Postman",
-      "Swagger",
       "Git",
-      "GitLab",
-      "Agile",
     ],
     team: [
       { label: "Back-end", value: "1 developer (me)" },
@@ -418,62 +473,6 @@ export const projects: Project[] = [
       { label: "QA", value: "1 engineer" },
     ],
     href: "https://quicktest.ge/",
-  },
-  {
-    slug: "order-management",
-    title: "Logistics Order Management",
-    tagline: "Automated order processing for a US trucking company",
-    role: "Full Stack Developer",
-    period: "Feb 2023 – Jun 2024",
-    duration: "1 year 5 months",
-    client: {
-      name: "US trucking company",
-      location: "USA",
-      description:
-        "A delivery trucking company based in the USA, providing logistics and transportation services. It manages daily shipments and deliveries, and needed a system to automate order processing, improve efficiency, and track orders in real time.",
-    },
-    image: orderManagement,
-    imageAlt:
-      "Logistics order management system: a truck at a warehouse with an order pipeline from a received email through processing, in transit, out for delivery, and delivered, plus a route map",
-    summary:
-      "A full-stack system that receives orders by email, parses and stores them automatically, and tracks every delivery in real time — replacing a fully manual process.",
-    overview: [
-      "The Order Management System is a full-stack application designed to automate and streamline the order management process for a trucking company. It receives orders via email, processes them efficiently, and tracks their status in real time.",
-      "I developed the project independently, initially building the backend with Express and later migrating to NestJS to improve the system's structure, scalability, and maintainability. The backend parses incoming order emails, stores order details in a PostgreSQL database, and pushes real-time updates to the frontend over WebSockets.",
-      "On the frontend, I built a user-friendly dashboard with React and TypeScript that lets staff view, process, and manage orders with ease, with real-time order tracking and status updates that significantly improved operational efficiency and reduced manual work.",
-    ],
-    highlights: [
-      "Solo build, end to end — backend, frontend, and database",
-      "Automatic order intake by parsing emails via the Gmail API",
-      "Live order status over WebSockets, routes on Google Maps",
-      "Migrated from Express to NestJS for structure and scale",
-    ],
-    responsibilities: [
-      "Designed and implemented both backend and frontend components to ensure seamless system functionality and an enhanced user experience.",
-      "Developed and maintained server-side logic to optimize application performance and scalability.",
-      "Managed database operations, including schema design, data storage, and optimization to ensure efficient data retrieval.",
-      "Enabled real-time data transmission to support dynamic and responsive application behavior.",
-      "Created an intuitive and user-friendly interface for order management, improving usability and workflow efficiency.",
-    ],
-    outcome:
-      "The project delivered a robust, scalable solution that automated a previously manual process, enabling the company to handle orders more effectively while minimizing errors.",
-    stack: [
-      "NestJS",
-      "Express",
-      "React",
-      "TypeScript",
-      "PostgreSQL",
-      "Ant Design",
-      "WebSockets",
-      "Axios",
-      "Google Maps API",
-      "Gmail API",
-      "JWT Authentication",
-      "Git",
-      "GitLab",
-      "Agile",
-    ],
-    team: [{ value: "Independent development (solo project)" }],
   },
 ];
 

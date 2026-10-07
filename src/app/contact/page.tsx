@@ -19,10 +19,13 @@ export default function ContactPage() {
         <PageHeading
           kicker={contact.kicker}
           title={contact.title}
-          intro={contact.intro}
         />
-        <div className="actions actions-center" data-reveal style={stagger(1)}>
-          <a className="button" href={`mailto:${site.email}`}>
+        <div
+          className="actions actions-center"
+          data-reveal="left"
+          style={stagger(1)}
+        >
+          <a className="button button-ghost" href={`mailto:${site.email}`}>
             {site.email}
           </a>
           <a
@@ -47,11 +50,11 @@ export default function ContactPage() {
             Download CV ↓
           </a>
         </div>
-        <div data-reveal style={stagger(2)}>
+        <div data-reveal="right" style={stagger(2)}>
           <ContactForm />
         </div>
         {site.links.length > 0 ? (
-          <ul className="social" data-reveal style={stagger(3)}>
+          <ul className="social" data-reveal="left" style={stagger(3)}>
             {site.links.map((link) => (
               <li key={link.href}>
                 <a href={link.href} target="_blank" rel="noreferrer">

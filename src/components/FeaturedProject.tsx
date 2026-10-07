@@ -2,6 +2,8 @@ import Image from "next/image";
 import Link from "next/link";
 import type { Project } from "@/content/projects";
 
+const STACK_LIMIT = 6;
+
 export function FeaturedProject({
   project,
   index,
@@ -9,6 +11,9 @@ export function FeaturedProject({
   project: Project;
   index: number;
 }) {
+  const shownStack = project.stack.slice(0, STACK_LIMIT);
+  const hiddenCount = project.stack.length - shownStack.length;
+
   return (
     <article className="feature project">
       <div className="feature-media">
@@ -23,7 +28,6 @@ export function FeaturedProject({
       <div className="feature-body">
         <div className="project-meta">
           <span>{String(index + 1).padStart(2, "0")}</span>
-          <span>{project.period}</span>
         </div>
         <div className="feature-intro">
           <p className="kicker feature-client">
@@ -36,21 +40,6 @@ export function FeaturedProject({
           </h2>
           <p className="feature-tagline">{project.tagline}</p>
           <p>{project.summary}</p>
-          <div className="feature-actions">
-            <span className="feature-cta" aria-hidden="true">
-              View case study <span className="arrow">→</span>
-            </span>
-            {project.href ? (
-              <a
-                className="feature-live"
-                href={project.href}
-                target="_blank"
-                rel="noreferrer"
-              >
-                {project.linkLabel ?? "Live site"} ↗
-              </a>
-            ) : null}
-          </div>
         </div>
         <div className="feature-details">
           <ul className="feature-highlights">
@@ -59,10 +48,28 @@ export function FeaturedProject({
             ))}
           </ul>
           <ul className="stack">
-            {project.stack.map((item) => (
+            {shownStack.map((item) => (
               <li key={item}>{item}</li>
             ))}
+            {hiddenCount > 0 ? (
+              <li className="stack-more">+{hiddenCount} more</li>
+            ) : null}
           </ul>
+        </div>
+        <div className="feature-actions">
+          {project.href ? (
+            <a
+              className="feature-live"
+              href={project.href}
+              target="_blank"
+              rel="noreferrer"
+            >
+              {project.linkLabel ?? "Live site"} ↗
+            </a>
+          ) : null}
+          <span className="feature-cta" aria-hidden="true">
+            View more <span className="arrow">→</span>
+          </span>
         </div>
       </div>
     </article>

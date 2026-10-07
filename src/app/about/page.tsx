@@ -18,31 +18,33 @@ export default function AboutPage() {
       <div className="wrap">
         <PageHeading title={about.title} />
         <div className="about-grid">
-          <div className="about-copy" data-reveal>
-            {site.about.map((paragraph) => (
-              <p key={paragraph}>{paragraph}</p>
-            ))}
-          </div>
-          <section
-            className="langs"
-            aria-labelledby="langs-title"
-            data-reveal
-            style={stagger(1)}
-          >
-            <h2 id="langs-title" className="kicker">
-              Languages
-            </h2>
-            <ul className="langs-list">
-              {site.languages.map((language) => (
-                <li key={language.name} className="lang">
-                  <span className="lang-badge" aria-hidden="true">
-                    {language.short}
-                  </span>
-                  <span className="lang-name">{language.name}</span>
-                </li>
+          <div data-reveal="left">
+            <div className="about-copy spotlight">
+              {site.about.map((paragraph) => (
+                <p key={paragraph}>{paragraph}</p>
               ))}
-            </ul>
-          </section>
+            </div>
+          </div>
+          <div data-reveal="right" style={stagger(1)}>
+            <section
+              className="langs spotlight"
+              aria-labelledby="langs-title"
+            >
+              <h2 id="langs-title" className="kicker">
+                Languages
+              </h2>
+              <ul className="langs-list">
+                {site.languages.map((language) => (
+                  <li key={language.name} className="lang">
+                    <span className="lang-badge" aria-hidden="true">
+                      {language.short}
+                    </span>
+                    <span className="lang-name">{language.name}</span>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </div>
         </div>
         <div className="actions actions-center page-next" data-reveal>
           <Link className="button" href="/projects">

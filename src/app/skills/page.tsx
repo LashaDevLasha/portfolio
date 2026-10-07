@@ -22,7 +22,11 @@ export default function SkillsPage() {
         />
         <ul className="project-grid">
           {site.skills.map((skill, index) => (
-            <li key={skill.title} data-reveal style={stagger(index)}>
+            <li
+              key={skill.title}
+              data-reveal={index % 2 === 0 ? "left" : "right"}
+              style={stagger(index)}
+            >
               <article className="project skill">
                 <h2>{skill.title}</h2>
                 <div className="skill-core">
@@ -45,7 +49,7 @@ export default function SkillsPage() {
               <div
                 key={group.title}
                 className="toolbox-row"
-                data-reveal
+                data-reveal={index % 2 === 0 ? "left" : "right"}
                 style={stagger(index % 4)}
               >
                 <dt>{group.title}</dt>

@@ -4,7 +4,8 @@ import { useEffect } from "react";
 
 /**
  * Page-wide motion: scroll reveals for `[data-reveal]`, mouse parallax
- * in the hero (`--mx` / `--my`), and the cursor spotlight on `.project` cards.
+ * in the hero (`--mx` / `--my`), and the cursor spotlight on `.project` and
+ * `.spotlight` cards.
  */
 export function MotionEffects() {
   useEffect(() => {
@@ -32,7 +33,7 @@ export function MotionEffects() {
 
     const onPointerMove = (event: PointerEvent) => {
       const card = (event.target as Element | null)?.closest<HTMLElement>(
-        ".project",
+        ".project, .spotlight",
       );
       if (card) {
         const rect = card.getBoundingClientRect();

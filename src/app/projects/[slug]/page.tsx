@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { MotionEffects } from "@/components/MotionEffects";
-import { ScrambleHeading } from "@/components/ScrambleHeading";
 import { getProject, projects } from "@/content/projects";
 import { site } from "@/content/site";
 
@@ -50,74 +49,72 @@ export default async function ProjectPage({
           <Link className="back-link" href="/projects">
             <span className="arrow">←</span> All projects
           </Link>
-          <p className="kicker case-kicker">
-            {project.client.name} · {project.role}
-          </p>
-          <ScrambleHeading
-            as="h1"
-            id="project-title"
-            text={project.title}
-            duration={900}
-          />
-          <p className="case-tagline">{project.tagline}</p>
+          <div className="case-hero-grid">
+            <div className="case-intro">
+              <p className="kicker case-kicker">
+                {project.client.name} · {project.role}
+              </p>
+              <h1 id="project-title">{project.title}</h1>
+              <p className="case-tagline">{project.tagline}</p>
 
-          <dl className="case-meta">
-            <div>
-              <dt>Client</dt>
-              <dd>{project.client.name}</dd>
+              <dl className="case-meta">
+                <div>
+                  <dt>Client</dt>
+                  <dd>{project.client.name}</dd>
+                </div>
+                <div>
+                  <dt>Role</dt>
+                  <dd>{project.role}</dd>
+                </div>
+                <div>
+                  <dt>Team</dt>
+                  <dd>
+                    {project.team.map((member) => (
+                      <span key={member.value} className="case-meta-line">
+                        {member.label ? `${member.label}: ` : null}
+                        {member.value}
+                      </span>
+                    ))}
+                  </dd>
+                </div>
+              </dl>
             </div>
-            <div>
-              <dt>Role</dt>
-              <dd>{project.role}</dd>
-            </div>
-            <div>
-              <dt>Period</dt>
-              <dd>
-                {project.period}
-                <span className="case-meta-sub">{project.duration}</span>
-              </dd>
-            </div>
-            <div>
-              <dt>Team</dt>
-              <dd>
-                {project.team.map((member) => (
-                  <span key={member.value} className="case-meta-line">
-                    {member.label ? `${member.label}: ` : null}
-                    {member.value}
-                  </span>
-                ))}
-              </dd>
-            </div>
-          </dl>
+
+            <figure className="case-media">
+              <Image
+                src={project.image}
+                alt={project.imageAlt}
+                sizes="(max-width: 900px) 100vw, 44rem"
+                placeholder="blur"
+                preload
+              />
+            </figure>
+          </div>
         </div>
       </section>
 
-      <div className="wrap">
-        <figure className="case-media">
-          <Image
-            src={project.image}
-            alt={project.imageAlt}
-            sizes="(max-width: 1140px) 100vw, 70rem"
-            placeholder="blur"
-            preload
-          />
-        </figure>
-      </div>
-
       <div className="wrap case-grid">
         <div className="case-main">
-          <section aria-labelledby="overview-heading" data-reveal>
-            <h2 className="case-heading" id="overview-heading">
-              Overview
-            </h2>
-            <div className="case-prose">
-              {project.overview.map((paragraph) => (
-                <p key={paragraph}>{paragraph}</p>
-              ))}
-            </div>
-          </section>
+          <div data-reveal="left">
+            <section
+              className="case-overview spotlight"
+              aria-labelledby="overview-heading"
+            >
+              <h2 className="case-heading" id="overview-heading">
+                Overview
+              </h2>
+              <div className="case-prose">
+                {project.overview.map((paragraph) => (
+                  <p key={paragraph}>{paragraph}</p>
+                ))}
+              </div>
+            </section>
+          </div>
 
-          <section aria-labelledby="responsibilities-heading" data-reveal>
+          <section
+            aria-labelledby="responsibilities-heading"
+            data-reveal="left"
+          >
             <h2 className="case-heading" id="responsibilities-heading">
               Responsibilities
             </h2>
@@ -131,7 +128,7 @@ export default async function ProjectPage({
           <section
             className="case-outcome"
             aria-labelledby="outcome-heading"
-            data-reveal
+            data-reveal="left"
           >
             <h2 className="kicker" id="outcome-heading">
               Outcome
@@ -141,21 +138,25 @@ export default async function ProjectPage({
         </div>
 
         <aside className="case-aside">
-          <section className="aside-card" data-reveal>
-            <h2 className="kicker">Tools &amp; technologies</h2>
-            <ul className="stack">
-              {project.stack.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-          </section>
-          <section className="aside-card" data-reveal style={stagger(1)}>
-            <h2 className="kicker">About {project.client.name}</h2>
-            {project.client.location ? (
-              <p className="aside-location">{project.client.location}</p>
-            ) : null}
-            <p>{project.client.description}</p>
-          </section>
+          <div data-reveal="right">
+            <section className="aside-card spotlight">
+              <h2 className="kicker">Tools &amp; technologies</h2>
+              <ul className="stack">
+                {project.stack.map((item) => (
+                  <li key={item}>{item}</li>
+                ))}
+              </ul>
+            </section>
+          </div>
+          <div data-reveal="right" style={stagger(1)}>
+            <section className="aside-card spotlight">
+              <h2 className="kicker">About {project.client.name}</h2>
+              {project.client.location ? (
+                <p className="aside-location">{project.client.location}</p>
+              ) : null}
+              <p>{project.client.description}</p>
+            </section>
+          </div>
           {project.href ? (
             <a
               className="button aside-button"

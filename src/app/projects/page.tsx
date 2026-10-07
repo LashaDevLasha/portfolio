@@ -18,7 +18,7 @@ export default function ProjectsPage() {
     <main id="content" className="page page-projects">
       <MotionEffects />
       <div className="wrap">
-        <PageHeading kicker={work.kicker} title={work.title} intro={work.intro} />
+        <PageHeading kicker={work.kicker} title={work.title} />
         <ProjectSlider titles={projects.map((project) => project.title)}>
           {projects.map((project, index) => (
             <FeaturedProject
